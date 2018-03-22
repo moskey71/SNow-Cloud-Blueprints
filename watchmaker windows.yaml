@@ -1,0 +1,2006 @@
+ServiceNowCloudBlueprint:
+  name: watchmaker windows
+  category: Compute
+  deploymentModel:
+  - resource: AWS Datacenter
+    resourceblock: ServiceNow::AWS Datacenter
+  - resource: watchmaker windows
+    resourceblock: AWSCloudFormation::watchmaker windows
+    host: AWS Datacenter
+  operations:
+  - operation: Provision
+    operationType: PROVISION
+    resourceOperations:
+    - name: watchmaker windows.Provision
+      order: '1'
+      resourceBlock: watchmaker windows
+      resourceInterface: watchmaker windows Interface
+      operation: Provision
+      parameters:
+      - name: WatchmakerEnvironment
+        defaultValue: ${parameter.watchmaker_windows_WatchmakerEnvironment}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: WatchmakerAdminUsers
+        defaultValue: ${parameter.watchmaker_windows_WatchmakerAdminUsers}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: SecurityGroupIds
+        defaultValue: ${parameter.watchmaker_windows_SecurityGroupIds}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: Location
+        defaultValue: ${parameter.Location}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: InstanceRole
+        defaultValue: ${parameter.watchmaker_windows_InstanceRole}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: AppVolumeSize
+        defaultValue: ${parameter.watchmaker_windows_AppVolumeSize}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: NoReboot
+        defaultValue: ${parameter.watchmaker_windows_NoReboot}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: WatchmakerConfig
+        defaultValue: ${parameter.watchmaker_windows_WatchmakerConfig}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: WatchmakerAdminGroups
+        defaultValue: ${parameter.watchmaker_windows_WatchmakerAdminGroups}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: PythonInstaller
+        defaultValue: ${parameter.watchmaker_windows_PythonInstaller}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: CloudAccount
+        defaultValue: ${parameter.CloudAccount}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: CloudWatchAgentUrl
+        defaultValue: ${parameter.watchmaker_windows_CloudWatchAgentUrl}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: AppVolumeDevice
+        defaultValue: ${parameter.watchmaker_windows_AppVolumeDevice}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: NoPublicIp
+        defaultValue: ${parameter.watchmaker_windows_NoPublicIp}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: WatchmakerComputerName
+        defaultValue: ${parameter.watchmaker_windows_WatchmakerComputerName}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: ToggleCfnInitUpdate
+        defaultValue: ${parameter.watchmaker_windows_ToggleCfnInitUpdate}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: PypiIndexUrl
+        defaultValue: ${parameter.watchmaker_windows_PypiIndexUrl}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: CustomTags
+        defaultValue: ${parameter.watchmaker_windows_CustomTags}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: AmiId
+        defaultValue: ${parameter.watchmaker_windows_AmiId}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: CfnEndpointUrl
+        defaultValue: ${parameter.watchmaker_windows_CfnEndpointUrl}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: AppScriptUrl
+        defaultValue: ${parameter.watchmaker_windows_AppScriptUrl}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: KeyPairName
+        defaultValue: ${parameter.watchmaker_windows_KeyPairName}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: WatchmakerBootstrapper
+        defaultValue: ${parameter.watchmaker_windows_WatchmakerBootstrapper}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: SubnetId
+        defaultValue: ${parameter.watchmaker_windows_SubnetId}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: PrivateIp
+        defaultValue: ${parameter.watchmaker_windows_PrivateIp}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: WatchmakerOuPath
+        defaultValue: ${parameter.watchmaker_windows_WatchmakerOuPath}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: AppVolumeType
+        defaultValue: ${parameter.watchmaker_windows_AppVolumeType}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: AppScriptParams
+        defaultValue: ${parameter.watchmaker_windows_AppScriptParams}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: InstanceType
+        defaultValue: ${parameter.watchmaker_windows_InstanceType}
+        typeOfMap: SingleMap
+        useInOperation: true
+    - name: Blueprint Container Resource.Provision
+      order: '2'
+      resourceBlock: watchmaker windows Blueprint Resource
+      resourceInterface: watchmaker windows Resource Interface
+      operation: Provision
+      parameters:
+      - name: EndDate
+        defaultValue: ${parameter.EndDate}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: BillingCode
+        defaultValue: ${parameter.BillingCode}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: ResourceGroup
+        defaultValue: ${parameter.ResourceGroup}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: WorkloadConfigProvider
+        defaultValue: ${parameter.WorkloadConfigProvider}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: UserGroup
+        defaultValue: ${parameter.UserGroup}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: BusinessService
+        defaultValue: ${parameter.BusinessService}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: StackName
+        defaultValue: ${parameter.StackName}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: Project
+        defaultValue: ${parameter.Project}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: ResourceGroupName
+        defaultValue: ${parameter.ResourceGroupName}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: AdditionalAPIParameters
+        defaultValue: ${parameter.AdditionalAPIParameters}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: Location
+        defaultValue: ${parameter.Location}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: StartDate
+        defaultValue: ${parameter.StartDate}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: WorkloadConfigProviderType
+        defaultValue: ${parameter.WorkloadConfigProviderType}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: CostCenter
+        defaultValue: ${parameter.CostCenter}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: CloudAccount
+        defaultValue: ${parameter.CloudAccount}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: Application
+        defaultValue: ${parameter.Application}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: CreateResourceGroup
+        defaultValue: ${parameter.CreateResourceGroup}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: SubscriptionId
+        defaultValue: ${parameter.SubscriptionId}
+        typeOfMap: SingleMap
+        useInOperation: false
+    globalProperties:
+    - name: watchmaker_windows_SecurityGroupIds
+      opUniqueId: '1240'
+      mandatory: true
+      order: 483
+    - name: watchmaker_windows_WatchmakerEnvironment
+      opUniqueId: '1240'
+      mandatory: true
+      order: 815
+    - name: watchmaker_windows_WatchmakerAdminUsers
+      opUniqueId: '1240'
+      mandatory: true
+      order: 641
+    - name: UserGroup
+      opUniqueId: '7433'
+      mandatory: true
+      order: 1075
+    - name: watchmaker_windows_NoReboot
+      opUniqueId: '1240'
+      mandatory: true
+      order: 341
+    - name: watchmaker_windows_InstanceRole
+      opUniqueId: '1240'
+      mandatory: true
+      order: 215
+    - name: watchmaker_windows_AppVolumeSize
+      opUniqueId: '1240'
+      mandatory: true
+      order: 105
+    - name: watchmaker_windows_PythonInstaller
+      opUniqueId: '1240'
+      mandatory: true
+      order: 446
+    - name: watchmaker_windows_WatchmakerConfig
+      opUniqueId: '1240'
+      mandatory: true
+      order: 770
+    - name: watchmaker_windows_WatchmakerAdminGroups
+      opUniqueId: '1240'
+      mandatory: true
+      order: 600
+    - name: StackName
+      opUniqueId: '7433'
+      mandatory: true
+      order: 1004
+    - name: watchmaker_windows_NoPublicIp
+      opUniqueId: '1240'
+      mandatory: true
+      order: 308
+    - name: watchmaker_windows_CloudWatchAgentUrl
+      opUniqueId: '1240'
+      mandatory: true
+      order: 186
+    - name: watchmaker_windows_AppVolumeDevice
+      opUniqueId: '1240'
+      mandatory: true
+      order: 80
+    - name: watchmaker_windows_PypiIndexUrl
+      opUniqueId: '1240'
+      mandatory: true
+      order: 410
+    - name: watchmaker_windows_WatchmakerComputerName
+      opUniqueId: '1240'
+      mandatory: true
+      order: 726
+    - name: watchmaker_windows_ToggleCfnInitUpdate
+      opUniqueId: '1240'
+      mandatory: true
+      order: 560
+    - name: Location
+      opUniqueId: '7433'
+      mandatory: true
+      order: 943
+    - name: watchmaker_windows_KeyPairName
+      opUniqueId: '1240'
+      mandatory: true
+      order: 276
+    - name: watchmaker_windows_CfnEndpointUrl
+      opUniqueId: '1240'
+      mandatory: true
+      order: 158
+    - name: watchmaker_windows_AppScriptUrl
+      opUniqueId: '1240'
+      mandatory: true
+      order: 56
+    - name: watchmaker_windows_PrivateIp
+      opUniqueId: '1240'
+      mandatory: true
+      order: 375
+    - name: watchmaker_windows_WatchmakerBootstrapper
+      opUniqueId: '1240'
+      mandatory: true
+      order: 683
+    - name: watchmaker_windows_SubnetId
+      opUniqueId: '1240'
+      mandatory: true
+      order: 521
+    - name: watchmaker_windows_WatchmakerOuPath
+      opUniqueId: '1240'
+      mandatory: true
+      order: 861
+    - name: CloudAccount
+      opUniqueId: '7433'
+      mandatory: true
+      order: 892
+    - name: watchmaker_windows_AmiId
+      opUniqueId: '1240'
+      mandatory: true
+      order: 11
+    - name: watchmaker_windows_InstanceType
+      opUniqueId: '1240'
+      mandatory: true
+      order: 245
+    - name: watchmaker_windows_AppVolumeType
+      opUniqueId: '1240'
+      mandatory: true
+      order: 131
+    - name: watchmaker_windows_AppScriptParams
+      opUniqueId: '1240'
+      mandatory: true
+      order: 33
+    formBehaviors:
+    - aliasName: watchmaker windows
+      parentFormBehaviorName: watchmaker windows
+      catalogName: watchmaker windows
+      createCatalog: true
+      catalogProperties:
+      - catalogProperty: watchmaker_windows_AmiId
+        name: watchmaker_windows_AmiId
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: ID of the AMI to launch
+        displayName: AmiId
+        displayOrder: 11
+        visibility: true
+        regex: ^ami-[0-9a-z]{8}$|^ami-[0-9a-z]{17}$
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: true
+      - catalogProperty: watchmaker_windows_AppScriptParams
+        name: watchmaker_windows_AppScriptParams
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: Parameter string to pass to the application script. Ignored if "AppScriptUrl" is blank
+        displayName: AppScriptParams
+        displayOrder: 33
+        visibility: true
+        regex: ''
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: false
+      - catalogProperty: watchmaker_windows_AppScriptUrl
+        name: watchmaker_windows_AppScriptUrl
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: (Optional) S3 URL to the .ps1 or .bat application script in an S3 bucket (s3://). Leave blank to launch without an application script. If specified, an appropriate "InstanceRole" is required
+        displayName: AppScriptUrl
+        displayOrder: 56
+        visibility: true
+        regex: ^$|^s3://(.*)/(.*)\.(bat|ps1)$
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: false
+      - catalogProperty: watchmaker_windows_AppVolumeDevice
+        name: watchmaker_windows_AppVolumeDevice
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: CSVList
+        dataSourceValue: xvdf,xvde,xvdg,xvdh,xvdi
+        uiDataType: Select
+        helpText: (Optional) Device to mount an extra EBS volume. Leave blank to launch without an extra application volume
+        displayName: AppVolumeDevice
+        displayOrder: 80
+        visibility: true
+        regex: ''
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: false
+      - catalogProperty: watchmaker_windows_AppVolumeSize
+        name: watchmaker_windows_AppVolumeSize
+        parameterTypeName: Integer
+        defaultValue: '1'
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: Size in GB of the EBS volume to create. Ignored if "AppVolumeDevice" is blank
+        displayName: AppVolumeSize
+        displayOrder: 105
+        visibility: true
+        regex: ''
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: false
+      - catalogProperty: watchmaker_windows_AppVolumeType
+        name: watchmaker_windows_AppVolumeType
+        parameterTypeName: String
+        defaultValue: gp2
+        dataSource: CSVList
+        dataSourceValue: gp2,io1,sc1,st1,standard
+        uiDataType: Select
+        helpText: Type of EBS volume to create. Ignored if "AppVolumeDevice" is blank
+        displayName: AppVolumeType
+        displayOrder: 131
+        visibility: true
+        regex: ''
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: false
+      - catalogProperty: watchmaker_windows_CfnEndpointUrl
+        name: watchmaker_windows_CfnEndpointUrl
+        parameterTypeName: String
+        defaultValue: https://cloudformation.us-east-1.amazonaws.com
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: (Optional) URL to the CloudFormation Endpoint. e.g. https://cloudformation.us-east-1.amazonaws.com
+        displayName: CfnEndpointUrl
+        displayOrder: 158
+        visibility: true
+        regex: ^$|^http[s]?://.*$
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: true
+      - catalogProperty: watchmaker_windows_CloudWatchAgentUrl
+        name: watchmaker_windows_CloudWatchAgentUrl
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: '(Optional) S3 URL to CloudWatch Agent installer. Example: s3://amazoncloudwatch-agent/windows/amd64/latest/AmazonCloudWatchAgent.zip'
+        displayName: CloudWatchAgentUrl
+        displayOrder: 186
+        visibility: true
+        regex: ^$|^s3://.*$
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: false
+      - catalogProperty: watchmaker_windows_InstanceRole
+        name: watchmaker_windows_InstanceRole
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: (Optional) IAM instance role to apply to the instance(s)
+        displayName: InstanceRole
+        displayOrder: 215
+        visibility: true
+        regex: ''
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: false
+      - catalogProperty: watchmaker_windows_InstanceType
+        name: watchmaker_windows_InstanceType
+        parameterTypeName: String
+        defaultValue: t2.micro
+        dataSource: CSVList
+        dataSourceValue: t2.micro,t2.small,t2.medium,t2.large,t2.xlarge,c4.large,c4.xlarge,m4.large,m4.xlarge,c5.large,c5.xlarge,m5.large,m5.xlarge
+        uiDataType: Select
+        helpText: Amazon EC2 instance type
+        displayName: InstanceType
+        displayOrder: 245
+        visibility: true
+        regex: ''
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: true
+      - catalogProperty: watchmaker_windows_KeyPairName
+        name: watchmaker_windows_KeyPairName
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: Public/private key pairs allow you to securely connect to your instance after it launches
+        displayName: KeyPairName
+        displayOrder: 276
+        visibility: true
+        regex: ''
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: true
+      - catalogProperty: watchmaker_windows_NoPublicIp
+        name: watchmaker_windows_NoPublicIp
+        parameterTypeName: String
+        defaultValue: 'true'
+        dataSource: CSVList
+        dataSourceValue: false,true
+        uiDataType: Select
+        helpText: Controls whether to assign the instance a public IP. Recommended to leave at "true" _unless_ launching in a public subnet
+        displayName: NoPublicIp
+        displayOrder: 308
+        visibility: true
+        regex: ''
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: true
+      - catalogProperty: watchmaker_windows_NoReboot
+        name: watchmaker_windows_NoReboot
+        parameterTypeName: String
+        defaultValue: 'false'
+        dataSource: CSVList
+        dataSourceValue: false,true
+        uiDataType: Select
+        helpText: Controls whether to reboot the instance as the last step of cfn-init execution
+        displayName: NoReboot
+        displayOrder: 341
+        visibility: true
+        regex: ''
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: true
+      - catalogProperty: watchmaker_windows_PrivateIp
+        name: watchmaker_windows_PrivateIp
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: (Optional) Set a static, primary private IP. Leave blank to auto-select a free IP
+        displayName: PrivateIp
+        displayOrder: 375
+        visibility: true
+        regex: ''
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: false
+      - catalogProperty: watchmaker_windows_PypiIndexUrl
+        name: watchmaker_windows_PypiIndexUrl
+        parameterTypeName: String
+        defaultValue: https://pypi.org/simple
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: URL to the PyPi Index
+        displayName: PypiIndexUrl
+        displayOrder: 410
+        visibility: true
+        regex: ^http[s]?://.*$
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: true
+      - catalogProperty: watchmaker_windows_PythonInstaller
+        name: watchmaker_windows_PythonInstaller
+        parameterTypeName: String
+        defaultValue: https://www.python.org/ftp/python/3.6.4/python-3.6.4-amd64.exe
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: URL to the Python Installer Executable
+        displayName: PythonInstaller
+        displayOrder: 446
+        visibility: true
+        regex: ^http[s]?://.*\.exe$
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: true
+      - catalogProperty: watchmaker_windows_SecurityGroupIds
+        name: watchmaker_windows_SecurityGroupIds
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: List of security groups to apply to the instance
+        displayName: SecurityGroupIds
+        displayOrder: 483
+        visibility: true
+        regex: ''
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: true
+      - catalogProperty: watchmaker_windows_SubnetId
+        name: watchmaker_windows_SubnetId
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: ID of the subnet to assign to the instance
+        displayName: SubnetId
+        displayOrder: 521
+        visibility: true
+        regex: ''
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: true
+      - catalogProperty: watchmaker_windows_ToggleCfnInitUpdate
+        name: watchmaker_windows_ToggleCfnInitUpdate
+        parameterTypeName: String
+        defaultValue: A
+        dataSource: CSVList
+        dataSourceValue: A,B
+        uiDataType: Select
+        helpText: A/B toggle that forces a change to instance metadata, triggering the cfn-init update sequence
+        displayName: ToggleCfnInitUpdate
+        displayOrder: 560
+        visibility: true
+        regex: ''
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: true
+      - catalogProperty: watchmaker_windows_WatchmakerAdminGroups
+        name: watchmaker_windows_WatchmakerAdminGroups
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: (Optional) Colon-separated list of domain groups that should have admin permissions on the EC2 instance
+        displayName: WatchmakerAdminGroups
+        displayOrder: 600
+        visibility: true
+        regex: ''
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: false
+      - catalogProperty: watchmaker_windows_WatchmakerAdminUsers
+        name: watchmaker_windows_WatchmakerAdminUsers
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: (Optional) Colon-separated list of domain users that should have admin permissions on the EC2 instance
+        displayName: WatchmakerAdminUsers
+        displayOrder: 641
+        visibility: true
+        regex: ''
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: false
+      - catalogProperty: watchmaker_windows_WatchmakerBootstrapper
+        name: watchmaker_windows_WatchmakerBootstrapper
+        parameterTypeName: String
+        defaultValue: https://raw.githubusercontent.com/plus3it/watchmaker/master/docs/files/bootstrap/watchmaker-bootstrap.ps1
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: URL to the Watchmaker PowerShell bootstrapper for Windows
+        displayName: WatchmakerBootstrapper
+        displayOrder: 683
+        visibility: true
+        regex: ^$|^http[s]?://.*\.ps1$
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: true
+      - catalogProperty: watchmaker_windows_WatchmakerComputerName
+        name: watchmaker_windows_WatchmakerComputerName
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: (Optional) Sets the hostname/computername within the OS
+        displayName: WatchmakerComputerName
+        displayOrder: 726
+        visibility: true
+        regex: ''
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: false
+      - catalogProperty: watchmaker_windows_WatchmakerConfig
+        name: watchmaker_windows_WatchmakerConfig
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: (Optional) Path to a Watchmaker config file. The config file path can be a remote source (i.e. http[s]://, s3://) or local directory (i.e. file://)
+        displayName: WatchmakerConfig
+        displayOrder: 770
+        visibility: true
+        regex: ^$|^(http[s]?|s3|file)://.*$
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: false
+      - catalogProperty: watchmaker_windows_WatchmakerEnvironment
+        name: watchmaker_windows_WatchmakerEnvironment
+        parameterTypeName: String
+        defaultValue: dev
+        dataSource: CSVList
+        dataSourceValue: dev,test,prod
+        uiDataType: Select
+        helpText: Environment in which the instance is being deployed
+        displayName: WatchmakerEnvironment
+        displayOrder: 815
+        visibility: true
+        regex: ''
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: false
+      - catalogProperty: watchmaker_windows_WatchmakerOuPath
+        name: watchmaker_windows_WatchmakerOuPath
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: (Optional) DN of the OU to place the instance when joining a domain. If blank and "WatchmakerEnvironment" enforces a domain join, the instance will be placed in a default container. Leave blank if not
+        displayName: WatchmakerOuPath
+        displayOrder: 861
+        visibility: true
+        regex: ^$|^(OU=.+,)+(DC=.+)+$
+        opUniqueId: '1240'
+        formUIGroup: Provision
+        mandatory: false
+      - catalogProperty: CloudAccount
+        name: CloudAccount
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: Pools
+        dataSourceValue: ServiceNow::Pools::CloudAccountPool.All
+        uiDataType: Select
+        helpText: ''
+        displayName: AWS Account
+        displayOrder: 892
+        visibility: true
+        regex: ''
+        opUniqueId: '7433'
+        formUIGroup: General Info
+        mandatory: true
+      - catalogProperty: Location
+        name: Location
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: Pools
+        dataSourceValue: ServiceNow::Pools::CloudLocationPool.All
+        uiDataType: Select
+        helpText: ''
+        displayName: AWS Region
+        displayOrder: 943
+        visibility: true
+        regex: ''
+        opUniqueId: '7433'
+        formUIGroup: General Info
+        mandatory: true
+      - catalogProperty: StackName
+        name: StackName
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: ''
+        displayName: Stack Name
+        displayOrder: 1004
+        visibility: true
+        regex: ''
+        opUniqueId: '7433'
+        formUIGroup: General Info
+        mandatory: true
+      - catalogProperty: UserGroup
+        name: UserGroup
+        parameterTypeName: String
+        defaultValue: ''
+        dataSource: Pools
+        dataSourceValue: ServiceNow::Pools::UserGroupPool.GroupsUserBelongsTo
+        uiDataType: Select
+        helpText: ''
+        displayName: User Group Tag
+        displayOrder: 1075
+        visibility: true
+        regex: ''
+        opUniqueId: '7433'
+        formUIGroup: General Info
+        mandatory: true
+      catalogItem:
+        name: watchmaker windows
+        type: item
+        category: Compute
+        description: CMP Blueprint
+        shortDescription: STIGed Windows instance
+        varaibleSets:
+        - name: General Info
+          description: ''
+          title: General Info
+          layout: 2across
+          order: 0
+          variables:
+          - name: CloudAccount
+            type: '5'
+            questionText: AWS Account
+            helpText: ''
+            defaultValue: ''
+            mandatory: true
+            active: true
+            showHelp: false
+            order: 892
+          - name: UserGroup
+            type: '5'
+            questionText: User Group Tag
+            helpText: ''
+            defaultValue: ''
+            mandatory: true
+            active: true
+            showHelp: false
+            order: 1075
+          - name: StackName
+            type: '6'
+            questionText: Stack Name
+            helpText: ''
+            defaultValue: ''
+            mandatory: true
+            active: true
+            showHelp: false
+            order: 1004
+          - name: Location
+            type: '5'
+            questionText: AWS Region
+            helpText: ''
+            defaultValue: ''
+            mandatory: true
+            active: true
+            showHelp: false
+            order: 943
+          clientScripts:
+          - name: Validate StackName
+            type: onChange
+            uiType: '10'
+            variableName: StackName
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"8626fc4d0d0d1300777f631abc7ed15c", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"8626fc4d0d0d1300777f631abc7ed15c", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate UserGroup
+            type: onChange
+            uiType: '10'
+            variableName: UserGroup
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"4e26fc4d0d0d1300777f631abc7ed162", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"4e26fc4d0d0d1300777f631abc7ed162", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: On submit validation
+            type: onSubmit
+            uiType: '10'
+            script: |-
+              // System generated script, please do not change
+              function onSubmit() {
+               return BlueprintSCClient.beforeSubmitCloudRsrcTemplate(g_form);
+              }
+            active: true
+          - name: Validate Location
+            type: onChange
+            uiType: '10'
+            variableName: Location
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"ce26fc4d0d0d1300777f631abc7ed155", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"ce26fc4d0d0d1300777f631abc7ed155", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate CloudAccount
+            type: onChange
+            uiType: '10'
+            variableName: CloudAccount
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"0a26fc4d0d0d1300777f631abc7ed14f", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"0a26fc4d0d0d1300777f631abc7ed14f", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+        - name: Provision
+          description: ''
+          title: Provision
+          layout: 2across
+          order: 1
+          variables:
+          - name: watchmaker_windows_CloudWatchAgentUrl
+            type: '6'
+            questionText: CloudWatchAgentUrl
+            helpText: '(Optional) S3 URL to CloudWatch Agent installer. Example: s3://amazoncloudwatch-agent/windows/amd64/latest/AmazonCloudWatchAgent.zip'
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: true
+            order: 186
+          - name: watchmaker_windows_InstanceRole
+            type: '6'
+            questionText: InstanceRole
+            helpText: (Optional) IAM instance role to apply to the instance(s)
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: true
+            order: 215
+          - name: watchmaker_windows_NoReboot
+            type: '5'
+            questionText: NoReboot
+            helpText: Controls whether to reboot the instance as the last step of cfn-init execution
+            defaultValue: 'false'
+            mandatory: true
+            active: true
+            showHelp: true
+            order: 341
+          - name: watchmaker_windows_WatchmakerAdminUsers
+            type: '6'
+            questionText: WatchmakerAdminUsers
+            helpText: (Optional) Colon-separated list of domain users that should have admin permissions on the EC2 instance
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: true
+            order: 641
+          - name: watchmaker_windows_SecurityGroupIds
+            type: '6'
+            questionText: SecurityGroupIds
+            helpText: List of security groups to apply to the instance
+            defaultValue: ''
+            mandatory: true
+            active: true
+            showHelp: true
+            order: 483
+          - name: watchmaker_windows_AppVolumeSize
+            type: '6'
+            questionText: AppVolumeSize
+            helpText: Size in GB of the EBS volume to create. Ignored if "AppVolumeDevice" is blank
+            defaultValue: '1'
+            mandatory: false
+            active: true
+            showHelp: true
+            order: 105
+          - name: watchmaker_windows_AppScriptParams
+            type: '6'
+            questionText: AppScriptParams
+            helpText: Parameter string to pass to the application script. Ignored if "AppScriptUrl" is blank
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: true
+            order: 33
+          - name: watchmaker_windows_CfnEndpointUrl
+            type: '6'
+            questionText: CfnEndpointUrl
+            helpText: (Optional) URL to the CloudFormation Endpoint. e.g. https://cloudformation.us-east-1.amazonaws.com
+            defaultValue: https://cloudformation.us-east-1.amazonaws.com
+            mandatory: true
+            active: true
+            showHelp: true
+            order: 158
+          - name: watchmaker_windows_NoPublicIp
+            type: '5'
+            questionText: NoPublicIp
+            helpText: Controls whether to assign the instance a public IP. Recommended to leave at "true" _unless_ launching in a public subnet
+            defaultValue: 'true'
+            mandatory: true
+            active: true
+            showHelp: true
+            order: 308
+          - name: watchmaker_windows_PythonInstaller
+            type: '6'
+            questionText: PythonInstaller
+            helpText: URL to the Python Installer Executable
+            defaultValue: https://www.python.org/ftp/python/3.6.4/python-3.6.4-amd64.exe
+            mandatory: true
+            active: true
+            showHelp: true
+            order: 446
+          - name: watchmaker_windows_WatchmakerAdminGroups
+            type: '6'
+            questionText: WatchmakerAdminGroups
+            helpText: (Optional) Colon-separated list of domain groups that should have admin permissions on the EC2 instance
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: true
+            order: 600
+          - name: watchmaker_windows_AppVolumeDevice
+            type: '5'
+            questionText: AppVolumeDevice
+            helpText: (Optional) Device to mount an extra EBS volume. Leave blank to launch without an extra application volume
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: true
+            order: 80
+          - name: watchmaker_windows_WatchmakerOuPath
+            type: '6'
+            questionText: WatchmakerOuPath
+            helpText: (Optional) DN of the OU to place the instance when joining a domain. If blank and "WatchmakerEnvironment" enforces a domain join, the instance will be placed in a default container. Leave blank if not
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: true
+            order: 861
+          - name: watchmaker_windows_WatchmakerConfig
+            type: '6'
+            questionText: WatchmakerConfig
+            helpText: (Optional) Path to a Watchmaker config file. The config file path can be a remote source (i.e. http[s]://, s3://) or local directory (i.e. file://)
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: true
+            order: 770
+          - name: watchmaker_windows_AppVolumeType
+            type: '5'
+            questionText: AppVolumeType
+            helpText: Type of EBS volume to create. Ignored if "AppVolumeDevice" is blank
+            defaultValue: gp2
+            mandatory: false
+            active: true
+            showHelp: true
+            order: 131
+          - name: watchmaker_windows_PypiIndexUrl
+            type: '6'
+            questionText: PypiIndexUrl
+            helpText: URL to the PyPi Index
+            defaultValue: https://pypi.org/simple
+            mandatory: true
+            active: true
+            showHelp: true
+            order: 410
+          - name: watchmaker_windows_KeyPairName
+            type: '6'
+            questionText: KeyPairName
+            helpText: Public/private key pairs allow you to securely connect to your instance after it launches
+            defaultValue: ''
+            mandatory: true
+            active: true
+            showHelp: true
+            order: 276
+          - name: watchmaker_windows_ToggleCfnInitUpdate
+            type: '5'
+            questionText: ToggleCfnInitUpdate
+            helpText: A/B toggle that forces a change to instance metadata, triggering the cfn-init update sequence
+            defaultValue: A
+            mandatory: true
+            active: true
+            showHelp: true
+            order: 560
+          - name: watchmaker_windows_AmiId
+            type: '6'
+            questionText: AmiId
+            helpText: ID of the AMI to launch
+            defaultValue: ''
+            mandatory: true
+            active: true
+            showHelp: true
+            order: 11
+          - name: watchmaker_windows_WatchmakerEnvironment
+            type: '5'
+            questionText: WatchmakerEnvironment
+            helpText: Environment in which the instance is being deployed
+            defaultValue: dev
+            mandatory: false
+            active: true
+            showHelp: true
+            order: 815
+          - name: watchmaker_windows_WatchmakerComputerName
+            type: '6'
+            questionText: WatchmakerComputerName
+            helpText: (Optional) Sets the hostname/computername within the OS
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: true
+            order: 726
+          - name: watchmaker_windows_InstanceType
+            type: '5'
+            questionText: InstanceType
+            helpText: Amazon EC2 instance type
+            defaultValue: t2.micro
+            mandatory: true
+            active: true
+            showHelp: true
+            order: 245
+          - name: watchmaker_windows_PrivateIp
+            type: '6'
+            questionText: PrivateIp
+            helpText: (Optional) Set a static, primary private IP. Leave blank to auto-select a free IP
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: true
+            order: 375
+          - name: watchmaker_windows_SubnetId
+            type: '6'
+            questionText: SubnetId
+            helpText: ID of the subnet to assign to the instance
+            defaultValue: ''
+            mandatory: true
+            active: true
+            showHelp: true
+            order: 521
+          - name: watchmaker_windows_AppScriptUrl
+            type: '6'
+            questionText: AppScriptUrl
+            helpText: (Optional) S3 URL to the .ps1 or .bat application script in an S3 bucket (s3://). Leave blank to launch without an application script. If specified, an appropriate "InstanceRole" is required
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: true
+            order: 56
+          - name: watchmaker_windows_WatchmakerBootstrapper
+            type: '6'
+            questionText: WatchmakerBootstrapper
+            helpText: URL to the Watchmaker PowerShell bootstrapper for Windows
+            defaultValue: https://raw.githubusercontent.com/plus3it/watchmaker/master/docs/files/bootstrap/watchmaker-bootstrap.ps1
+            mandatory: true
+            active: true
+            showHelp: true
+            order: 683
+          clientScripts:
+          - name: Validate watchmaker_windows_CloudWatchAg
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_CloudWatchAgentUrl
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"0526bc4d0d0d1300777f631abc7ed1bc", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"0526bc4d0d0d1300777f631abc7ed1bc", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_CfnEndpointU
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_CfnEndpointUrl
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"4d26bc4d0d0d1300777f631abc7ed1b5", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"4d26bc4d0d0d1300777f631abc7ed1b5", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_NoPublicIp
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_NoPublicIp
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"5126bc4d0d0d1300777f631abc7ed1d6", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"5126bc4d0d0d1300777f631abc7ed1d6", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_WatchmakerAd
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_WatchmakerAdminGroups
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"6926fc4d0d0d1300777f631abc7ed109", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"6926fc4d0d0d1300777f631abc7ed109", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_PythonInstal
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_PythonInstaller
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"5d26bc4d0d0d1300777f631abc7ed1ef", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"5d26bc4d0d0d1300777f631abc7ed1ef", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_WatchmakerCo
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_WatchmakerConfig
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"7526fc4d0d0d1300777f631abc7ed123", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"7526fc4d0d0d1300777f631abc7ed123", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_AmiId
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_AmiId
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"b826bc4d0d0d1300777f631abc7ed175", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"b826bc4d0d0d1300777f631abc7ed175", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_AppVolumeDev
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_AppVolumeDevice
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"7026bc4d0d0d1300777f631abc7ed196", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"7026bc4d0d0d1300777f631abc7ed196", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_WatchmakerOu
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_WatchmakerOuPath
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"7126fc4d0d0d1300777f631abc7ed149", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"7126fc4d0d0d1300777f631abc7ed149", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_AppVolumeTyp
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_AppVolumeType
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"8526bc4d0d0d1300777f631abc7ed1af", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"8526bc4d0d0d1300777f631abc7ed1af", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_PypiIndexUrl
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_PypiIndexUrl
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"9526bc4d0d0d1300777f631abc7ed1e9", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"9526bc4d0d0d1300777f631abc7ed1e9", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_KeyPairName
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_KeyPairName
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"9926bc4d0d0d1300777f631abc7ed1cf", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"9926bc4d0d0d1300777f631abc7ed1cf", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_ToggleCfnIni
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_ToggleCfnInitUpdate
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"a126fc4d0d0d1300777f631abc7ed103", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"a126fc4d0d0d1300777f631abc7ed103", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_WatchmakerEn
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_WatchmakerEnvironment
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"b926fc4d0d0d1300777f631abc7ed142", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"b926fc4d0d0d1300777f631abc7ed142", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_WatchmakerCo
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_WatchmakerComputerName
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"bd26fc4d0d0d1300777f631abc7ed11c", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"bd26fc4d0d0d1300777f631abc7ed11c", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_InstanceType
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_InstanceType
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"c126bc4d0d0d1300777f631abc7ed1c9", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"c126bc4d0d0d1300777f631abc7ed1c9", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: On submit validation
+            type: onSubmit
+            uiType: '10'
+            script: |-
+              // System generated script, please do not change
+              function onSubmit() {
+               return BlueprintSCClient.beforeSubmitCloudRsrcTemplate(g_form);
+              }
+            active: true
+          - name: Validate watchmaker_windows_PrivateIp
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_PrivateIp
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"dd26bc4d0d0d1300777f631abc7ed1e2", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"dd26bc4d0d0d1300777f631abc7ed1e2", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_SubnetId
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_SubnetId
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"e926bc4d0d0d1300777f631abc7ed1fc", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"e926bc4d0d0d1300777f631abc7ed1fc", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_WatchmakerBo
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_WatchmakerBootstrapper
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"f526fc4d0d0d1300777f631abc7ed116", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"f526fc4d0d0d1300777f631abc7ed116", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_AppVolumeSiz
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_AppVolumeSize
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"3826bc4d0d0d1300777f631abc7ed19c", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"3826bc4d0d0d1300777f631abc7ed19c", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_AppScriptUrl
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_AppScriptUrl
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"f026bc4d0d0d1300777f631abc7ed183", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"f026bc4d0d0d1300777f631abc7ed183", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_InstanceRole
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_InstanceRole
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"0d26bc4d0d0d1300777f631abc7ed1c2", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"0d26bc4d0d0d1300777f631abc7ed1c2", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_NoReboot
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_NoReboot
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"1926bc4d0d0d1300777f631abc7ed1dc", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"1926bc4d0d0d1300777f631abc7ed1dc", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_SecurityGrou
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_SecurityGroupIds
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"2526bc4d0d0d1300777f631abc7ed1f6", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"2526bc4d0d0d1300777f631abc7ed1f6", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_AppScriptPar
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_AppScriptParams
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"3c26bc4d0d0d1300777f631abc7ed17c", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"3c26bc4d0d0d1300777f631abc7ed17c", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+          - name: Validate watchmaker_windows_WatchmakerAd
+            type: onChange
+            uiType: '10'
+            variableName: watchmaker_windows_WatchmakerAdminUsers
+            script: |-
+              // System generated script, please do not change
+              function onChange(control, oldValue, newValue, isLoading) {
+               BlueprintSCClient.validateCatItemParameterVariables('sn_cmp.BlueprintSCAjax',"2126fc4d0d0d1300777f631abc7ed110", oldValue, newValue, isLoading, g_form);
+              if( oldValue != newValue ) {
+               BlueprintSCClient.executeFieldChange('sn_cmp.DynamicFormAjax',"2126fc4d0d0d1300777f631abc7ed110", oldValue, newValue, isLoading, g_form,g_form.getUniqueValue());
+              }
+              }
+            active: true
+        active: true
+      formUIGroups:
+      - name: General Info
+        displayOrder: '0'
+      - name: Provision
+        displayOrder: '1'
+      formEvents:
+      - name: FormLoad
+        type: FormLoad
+        rules:
+        - name: Reload CloudAccount
+          order: 100
+          sourceAttribute: ''
+          actions:
+          - name: Reload CloudAccount
+            dataSource: Reload Cloud Account
+            type: Reload
+            targetAttributeName: CloudAccount
+            status: ''
+            value: ''
+            order: 100
+            parameterList: []
+          conditions: []
+        - name: TriggerChangeEvent CloudAccount
+          order: 200
+          sourceAttribute: ''
+          actions:
+          - name: TriggerChangeEvent CloudAccount
+            dataSource: ''
+            type: TriggerChangeEvent
+            targetAttributeName: CloudAccount
+            status: ''
+            value: ''
+            order: 100
+            parameterList: []
+          conditions: []
+        - name: Reload Quota
+          order: 300
+          sourceAttribute: ''
+          actions:
+          - name: Reload Quota
+            dataSource: Check Quota
+            type: Reload
+            targetAttributeName: Quota
+            status: ''
+            value: ''
+            order: 100
+            parameterList:
+            - key: Location
+              value: Location
+            - key: CloudAccount
+              value: CloudAccount
+          conditions: []
+        - name: Reload -  Quota
+          order: 1000
+          sourceAttribute: ''
+          actions:
+          - name: Reload Quota
+            dataSource: Check Quota
+            type: Reload
+            targetAttributeName: Quota
+            status: ''
+            value: ''
+            order: 100
+            parameterList:
+            - key: Location
+              value: Location
+            - key: CloudAccount
+              value: CloudAccount
+          conditions: []
+      - name: FieldChange
+        type: FieldChange
+        rules:
+        - name: Reload Location
+          order: 400
+          sourceAttribute: CloudAccount
+          actions:
+          - name: Reload Location
+            dataSource: Reload Cloud Location
+            type: Reload
+            targetAttributeName: Location
+            status: ''
+            value: ''
+            order: 100
+            parameterList:
+            - key: CloudAccount
+              value: CloudAccount
+          conditions: []
+        - name: TriggerChangeEvent Location
+          order: 500
+          sourceAttribute: CloudAccount
+          actions:
+          - name: TriggerChangeEvent Location
+            dataSource: ''
+            type: TriggerChangeEvent
+            targetAttributeName: Location
+            status: ''
+            value: ''
+            order: 100
+            parameterList: []
+          conditions: []
+        - name: TriggerChangeEvent UserGroup
+          order: 600
+          sourceAttribute: Location
+          actions:
+          - name: TriggerChangeEvent UserGroup
+            dataSource: ''
+            type: TriggerChangeEvent
+            targetAttributeName: UserGroup
+            status: ''
+            value: ''
+            order: 100
+            parameterList: []
+          conditions: []
+        - name: Reload Quota
+          order: 700
+          sourceAttribute: UserGroup
+          actions:
+          - name: Reload Quota
+            dataSource: Check Quota
+            type: Reload
+            targetAttributeName: Quota
+            status: ''
+            value: ''
+            order: 100
+            parameterList:
+            - key: CloudAccount
+              value: CloudAccount
+            - key: Location
+              value: Location
+          conditions: []
+  - operation: Cleanup
+    operationType: RECONFIGURE
+    resourceOperations:
+    - name: Blueprint Container Resource.Cleanup
+      order: '1'
+      condition: '''${Stack.items[Blueprint Container Resource].status}''==''2'''
+      resourceBlock: watchmaker windows Blueprint Resource
+      resourceInterface: watchmaker windows Resource Interface
+      operation: Cleanup
+    formBehaviors:
+    - aliasName: watchmaker windows Cleanup
+      parentFormBehaviorName: watchmaker windows
+      catalogName: Cleanup
+      createCatalog: true
+      catalogItem:
+        name: Cleanup
+        type: item
+        category: Compute
+        description: CMP Blueprint
+        shortDescription: Are you sure you want to perform this operation?
+        varaibleSets:
+        - name: Lifecycle Operation Parameters
+          description: ''
+          title: Lifecycle Operation Parameters
+          layout: 2across
+          order: 2000
+          variables:
+          - name: operationName
+            type: '6'
+            questionText: operationName
+            helpText: ''
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: false
+            order: 0
+          - name: resourceId
+            type: '6'
+            questionText: resourceId
+            helpText: ''
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: false
+            order: 0
+          clientScripts:
+          - name: Hide operation variables
+            type: onLoad
+            uiType: '10'
+            script: |-
+              // System generatend script, please do not change
+              function onLoad() {
+                g_form.setDisplay('Lifecycle Operation Parameters', false);
+              }
+            active: true
+        active: true
+      formUIGroups:
+      - name: General Info
+        displayOrder: '0'
+      - name: Cleanup
+        displayOrder: '1'
+      formEvents:
+      - name: FieldChange
+        type: FieldChange
+        rules: []
+      - name: FormLoad
+        type: FormLoad
+        rules: []
+  - operation: Stop
+    operationType: STOP
+    resourceOperations:
+    - name: watchmaker windows.Stop
+      order: '1'
+      resourceBlock: watchmaker windows
+      resourceInterface: watchmaker windows Interface
+      operation: Stop
+      parameters:
+      - name: Location
+        defaultValue: ${parameter.Location}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: StackID
+        defaultValue: ${Stack.items[watchmaker windows].attributes[object_id]}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: CloudAccount
+        defaultValue: ${parameter.CloudAccount}
+        typeOfMap: SingleMap
+        useInOperation: false
+    - name: Blueprint Container Resource.Stop
+      order: '2'
+      resourceBlock: watchmaker windows Blueprint Resource
+      resourceInterface: watchmaker windows Resource Interface
+      operation: Stop
+    globalProperties:
+    - name: watchmaker_windows_StackID
+      opUniqueId: '1589'
+      mandatory: true
+      order: 12
+    formBehaviors:
+    - aliasName: watchmaker windows Stop
+      parentFormBehaviorName: watchmaker windows
+      catalogName: Stop
+      createCatalog: true
+      catalogProperties:
+      - catalogProperty: watchmaker_windows_StackID
+        name: watchmaker_windows_StackID
+        parameterTypeName: String
+        defaultValue: ${Stack.items[watchmaker windows].attributes[object_id]}
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: ''
+        displayName: Watchmaker Windows StackID
+        displayOrder: 12
+        visibility: true
+        regex: ''
+        opUniqueId: '1589'
+        formUIGroup: Stop
+        mandatory: true
+      catalogItem:
+        name: Stop
+        type: item
+        category: Compute
+        description: CMP Blueprint
+        shortDescription: Are you sure you want to perform this operation?
+        varaibleSets:
+        - name: Lifecycle Operation Parameters
+          description: ''
+          title: Lifecycle Operation Parameters
+          layout: 2across
+          order: 2000
+          variables:
+          - name: resourceId
+            type: '6'
+            questionText: resourceId
+            helpText: ''
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: false
+            order: 0
+          - name: operationName
+            type: '6'
+            questionText: operationName
+            helpText: ''
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: false
+            order: 0
+          clientScripts:
+          - name: Hide operation variables
+            type: onLoad
+            uiType: '10'
+            script: |-
+              // System generatend script, please do not change
+              function onLoad() {
+                g_form.setDisplay('Lifecycle Operation Parameters', false);
+              }
+            active: true
+        active: true
+      formUIGroups:
+      - name: General Info
+        displayOrder: '0'
+      - name: Stop
+        displayOrder: '1'
+      formEvents:
+      - name: FormLoad
+        type: FormLoad
+        rules: []
+      - name: FieldChange
+        type: FieldChange
+        rules: []
+  - operation: Deprovision
+    operationType: DEPROVISION
+    resourceOperations:
+    - name: Blueprint Container Resource.Deprovision
+      order: '1'
+      resourceBlock: watchmaker windows Blueprint Resource
+      resourceInterface: watchmaker windows Resource Interface
+      operation: Deprovision
+    - name: watchmaker windows.Deprovision
+      order: '2'
+      resourceBlock: watchmaker windows
+      resourceInterface: watchmaker windows Interface
+      operation: Deprovision
+      parameters:
+      - name: Location
+        defaultValue: ${parameter.Location}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: StackID
+        defaultValue: ${Stack.items[watchmaker windows].attributes[object_id]}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: CloudAccount
+        defaultValue: ${parameter.CloudAccount}
+        typeOfMap: SingleMap
+        useInOperation: false
+    globalProperties:
+    - name: watchmaker_windows_StackID
+      opUniqueId: '6846'
+      mandatory: true
+      order: 12
+    formBehaviors:
+    - aliasName: watchmaker windows Deprovision
+      parentFormBehaviorName: watchmaker windows
+      catalogName: Deprovision
+      createCatalog: true
+      catalogProperties:
+      - catalogProperty: watchmaker_windows_StackID
+        name: watchmaker_windows_StackID
+        parameterTypeName: String
+        defaultValue: ${Stack.items[watchmaker windows].attributes[object_id]}
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: ''
+        displayName: Watchmaker Windows StackID
+        displayOrder: 12
+        visibility: true
+        regex: ''
+        opUniqueId: '6846'
+        formUIGroup: Deprovision
+        mandatory: true
+      catalogItem:
+        name: Deprovision
+        type: item
+        category: Compute
+        description: CMP Blueprint
+        shortDescription: Are you sure you want to perform this operation?
+        varaibleSets:
+        - name: Lifecycle Operation Parameters
+          description: ''
+          title: Lifecycle Operation Parameters
+          layout: 2across
+          order: 2000
+          variables:
+          - name: resourceId
+            type: '6'
+            questionText: resourceId
+            helpText: ''
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: false
+            order: 0
+          - name: operationName
+            type: '6'
+            questionText: operationName
+            helpText: ''
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: false
+            order: 0
+          clientScripts:
+          - name: Hide operation variables
+            type: onLoad
+            uiType: '10'
+            script: |-
+              // System generatend script, please do not change
+              function onLoad() {
+                g_form.setDisplay('Lifecycle Operation Parameters', false);
+              }
+            active: true
+        active: true
+      formUIGroups:
+      - name: Deprovision
+        displayOrder: '1'
+      - name: General Info
+        displayOrder: '0'
+      formEvents:
+      - name: FieldChange
+        type: FieldChange
+        rules: []
+      - name: FormLoad
+        type: FormLoad
+        rules: []
+  - operation: Start
+    operationType: START
+    resourceOperations:
+    - name: watchmaker windows.Start
+      order: '1'
+      resourceBlock: watchmaker windows
+      resourceInterface: watchmaker windows Interface
+      operation: Start
+      parameters:
+      - name: StackID
+        defaultValue: ${Stack.items[watchmaker windows].attributes[object_id]}
+        typeOfMap: SingleMap
+        useInOperation: true
+      - name: CloudAccount
+        defaultValue: ${parameter.CloudAccount}
+        typeOfMap: SingleMap
+        useInOperation: false
+      - name: Location
+        defaultValue: ${parameter.Location}
+        typeOfMap: SingleMap
+        useInOperation: false
+    - name: Blueprint Container Resource.Start
+      order: '2'
+      resourceBlock: watchmaker windows Blueprint Resource
+      resourceInterface: watchmaker windows Resource Interface
+      operation: Start
+    globalProperties:
+    - name: watchmaker_windows_StackID
+      opUniqueId: '7606'
+      mandatory: true
+      order: 12
+    formBehaviors:
+    - aliasName: watchmaker windows Start
+      parentFormBehaviorName: watchmaker windows
+      catalogName: Start
+      createCatalog: true
+      catalogProperties:
+      - catalogProperty: watchmaker_windows_StackID
+        name: watchmaker_windows_StackID
+        parameterTypeName: String
+        defaultValue: ${Stack.items[watchmaker windows].attributes[object_id]}
+        dataSource: Text
+        dataSourceValue: ''
+        uiDataType: TextBox
+        helpText: ''
+        displayName: Watchmaker Windows StackID
+        displayOrder: 12
+        visibility: true
+        regex: ''
+        opUniqueId: '7606'
+        formUIGroup: Start
+        mandatory: true
+      catalogItem:
+        name: Start
+        type: item
+        category: Compute
+        description: CMP Blueprint
+        shortDescription: Are you sure you want to perform this operation?
+        varaibleSets:
+        - name: Lifecycle Operation Parameters
+          description: ''
+          title: Lifecycle Operation Parameters
+          layout: 2across
+          order: 2000
+          variables:
+          - name: resourceId
+            type: '6'
+            questionText: resourceId
+            helpText: ''
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: false
+            order: 0
+          - name: operationName
+            type: '6'
+            questionText: operationName
+            helpText: ''
+            defaultValue: ''
+            mandatory: false
+            active: true
+            showHelp: false
+            order: 0
+          clientScripts:
+          - name: Hide operation variables
+            type: onLoad
+            uiType: '10'
+            script: |-
+              // System generatend script, please do not change
+              function onLoad() {
+                g_form.setDisplay('Lifecycle Operation Parameters', false);
+              }
+            active: true
+        active: true
+      formUIGroups:
+      - name: General Info
+        displayOrder: '0'
+      - name: Start
+        displayOrder: '1'
+      formEvents:
+      - name: FieldChange
+        type: FieldChange
+        rules: []
+      - name: FormLoad
+        type: FormLoad
+        rules: []

@@ -1,5 +1,5 @@
 ServiceNowCloudBlueprint:
-  name: watchmaker_single_linux_instance
+  name: watchmaker linux
   category: Compute
   deploymentModel:
   - resource: watchmaker_single_linux_instance
@@ -404,15 +404,15 @@ ServiceNowCloudBlueprint:
       - catalogProperty: watchmaker_single_linux_instance_AmiId
         name: watchmaker_single_linux_instance_AmiId
         parameterTypeName: String
-        defaultValue: ami-a1feecdb
-        dataSource: Text
-        dataSourceValue: ''
-        uiDataType: TextBox
+        defaultValue: ''
+        dataSource: Pools
+        dataSourceValue: ServiceNow::Pools::OSProfilePool.getByCAAndLDC
+        uiDataType: LookupSelect
         helpText: ID of the AMI to launch
         displayName: AmiId
         displayOrder: 33
         visibility: true
-        regex: ^ami-[0-9a-z]{8}$|^ami-[0-9a-z]{17}$
+        regex: ''
         opUniqueId: '3344'
         formUIGroup: Provision
         mandatory: true
@@ -584,10 +584,10 @@ ServiceNowCloudBlueprint:
       - catalogProperty: watchmaker_single_linux_instance_InstanceType
         name: watchmaker_single_linux_instance_InstanceType
         parameterTypeName: String
-        defaultValue: t2.micro
-        dataSource: CSVList
-        dataSourceValue: t2.micro,t2.small,t2.medium,t2.large,t2.xlarge,c4.large,c4.xlarge,m4.large,m4.xlarge,c5.large,c5.xlarge,m5.large,m5.xlarge
-        uiDataType: Select
+        defaultValue: ''
+        dataSource: Pools
+        dataSourceValue: ServiceNow::Pools::ComputeProfilePool.getByCAAndLDC
+        uiDataType: LookupSelect
         helpText: Amazon EC2 instance type
         displayName: InstanceType
         displayOrder: 375
@@ -1126,7 +1126,7 @@ ServiceNowCloudBlueprint:
             type: '6'
             questionText: SubnetId
             helpText: ID of the subnet to assign to the instance
-            defaultValue: 
+            defaultValue:
             mandatory: true
             active: true
             showHelp: true
@@ -1162,7 +1162,7 @@ ServiceNowCloudBlueprint:
             type: '6'
             questionText: SecurityGroupIds
             helpText: List of security groups to apply to the instance
-            defaultValue: 
+            defaultValue:
             mandatory: true
             active: true
             showHelp: true
@@ -1207,7 +1207,7 @@ ServiceNowCloudBlueprint:
             type: '6'
             questionText: KeyPairName
             helpText: Public/private key pairs allow you to securely connect to your instance after it launches
-            defaultValue: 
+            defaultValue:
             mandatory: true
             active: true
             showHelp: true
@@ -1890,6 +1890,40 @@ ServiceNowCloudBlueprint:
             dataSource: Check Quota
             type: Reload
             targetAttributeName: Quota
+            status: ''
+            value: ''
+            order: 100
+            parameterList:
+            - key: Location
+              value: Location
+            - key: CloudAccount
+              value: CloudAccount
+          conditions: []
+        - name: Reload Virtual_Server_OSProfile
+          order: 800
+          sourceAttribute: Location
+          actions:
+          - name: Reload watchmaker_single_linux_instance_AmiDistro
+            dataSource: Reload From Pool
+            type: Reload
+            targetAttributeName: watchmaker_single_linux_instance_AmiDistro
+            status: ''
+            value: ''
+            order: 100
+            parameterList:
+            - key: Location
+              value: Location
+            - key: CloudAccount
+              value: CloudAccount
+          conditions: []
+        - name: Reload watchmaker_single_linux_instance_InstanceType
+          order: 900
+          sourceAttribute: Location
+          actions:
+          - name: Reload Virtual Server ComputeProfile
+            dataSource: Reload From Pool
+            type: Reload
+            targetAttributeName: watchmaker_single_linux_instance_InstanceType
             status: ''
             value: ''
             order: 100
