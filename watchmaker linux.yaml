@@ -1,5 +1,5 @@
 ServiceNowCloudBlueprint:
-  name: watchmaker linux
+  name: watchmaker_single_linux_instance
   category: Compute
   deploymentModel:
   - resource: watchmaker_single_linux_instance
